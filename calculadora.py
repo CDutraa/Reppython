@@ -43,3 +43,4 @@ elif operacao in multi:
     print(f'O resultado da sua multiplicação é: {resultado:g}')
 
 print("alteraçao")
+print("opa oi")
