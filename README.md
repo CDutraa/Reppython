@@ -1,4 +1,4 @@
-# Reppython
+# RepPython
 *Meu Repositório de códigos em python*
 
 Aqui tem códigos que eu fiz enquanto estudo python e arquivos necessários para os códigos.
