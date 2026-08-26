@@ -41,6 +41,3 @@ elif operacao in div:
 elif operacao in multi:
     resultado = n1 * n2
     print(f'O resultado da sua multiplicação é: {resultado:g}')
-
-print("alteraçao")
-print("opa oi")
