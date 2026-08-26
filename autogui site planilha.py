@@ -5,12 +5,13 @@
 import pyautogui
 import time
 import pandas
-
+from pathlib import Path
 
 
 #variaveis
 link = 'https://sheetigo.com/pt'
-tabela = pandas.read_csv(r"C:\Users\caua.rodrigues\Desktop\Cauã\produtos.csv")
+arquivo = Path(__file__).parent / 'produtos.csv'
+tabela = pandas.read_csv(arquivo)
 
 
 
@@ -23,11 +24,13 @@ pyautogui.press('win')
 pyautogui.write('edge')
 pyautogui.press('enter')
 #pausa
+time.sleep(2)
+pyautogui.hotkey('ctrl', 't')
 time.sleep(1)
 pyautogui.write(link)
 pyautogui.press('enter')
 #pausa
-time.sleep(3)
+time.sleep(4)
 
 #passo2: abrir a base de dados
 #tabela = pandas.read_csv(r'C:\Users\Ramon.Telles\Downloads\produtos.csv')
@@ -67,4 +70,3 @@ for linha in tabela.index:
     pyautogui.press('tab')
 
     pyautogui.press('enter')
-
