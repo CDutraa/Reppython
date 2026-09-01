@@ -1,43 +1,31 @@
-# input da operação
-operacao = input('Será uma soma, subtração, divisão ou multiplicação?: ')
-operacao = operacao.lower().strip()
-
-# listas das operações
-soma = ['soma']
-sub = ['subtração', 'subtraçao', 'subtracão', 'subtracao']
-div = ['divisão', 'divisao']
-multi = ['multiplicação', 'multiplicaçao', 'multiplicacão', 'multiplicacao']
-
-# while para enquanto o usuario digitar errado
-while operacao not in soma and operacao not in sub and operacao not in div and operacao not in multi:
-    print('Essa operação não existe ou está escrita incorretamente!')
-
-    operacao = input('Será uma soma, subtração, divisão ou multiplicação?: ')
-    operacao = operacao.lower().strip()
-
-# input dos numeros para a conta
+# input dos numeros e operação
+print("\nDigite os números que deseja calcular\n")
 n1 = float(input('numero 1: '))
 n2 = float(input('numero 2: '))
+op = input("Digite o tipo de operação (+, -, /, *): ")
 
-# SOMA
-if operacao in soma:
-    resultado = n1 + n2
-    print(f'O resultado da sua soma é: {resultado:g}')
+#switch-case do python
+def calcular(n1, n2, op):
+    match op:
+        case '+':
+            resultado = n1 + n2
+            print(f'O resultado da sua soma é: {resultado:g}')
+        case '-':
+            resultado = n1 - n2
+            print(f'O resultado da sua subtração é: {resultado:g}')
+        case '/':
+            if n2 == 0:
+                print('Erro: Não é possível dividir por zero.')
+            else:
+                resultado = n1 / n2
+                print(f'O resultado da sua divisão é: {resultado:g}')
+        case '*':
+            resultado = n1 * n2
+            print(f'O resultado da sua multiplicação é: {resultado:g}')
 
-# SUBTRAÇÃO
-elif operacao in sub:
-    resultado = n1 - n2 
-    print(f'O resultado da sua subtração é: {resultado:g}')
-
-# DIVISÃO
-elif operacao in div:
-    if n2 == 0:
-        print('Erro: Não é possível dividir por zero.')
-    else:  
-        resultado = n1 / n2
-        print(f'O resultado da sua divisão é: {resultado:g}')
-
-# MULTIPLICAÇÃO
-elif operacao in multi:
-    resultado = n1 * n2
-    print(f'O resultado da sua multiplicação é: {resultado:g}')
+#enquanto a operação nao for valida, ele vai pedir para digitar novamente
+while op not in ['+', '-', '*', '/']:
+    print('Erro: Operação inválida!\nPor favor, digite uma operação válida (+, -, *, /).')
+    op = input("Digite o tipo de operação (+, -, /, *): ")
+else:
+    calcular(n1, n2, op)
