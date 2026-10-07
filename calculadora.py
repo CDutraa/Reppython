@@ -14,11 +14,11 @@ def calcular(n1, n2, op):
             resultado = n1 - n2
             print(f'O resultado da sua subtração é: {resultado:g}')
         case '/':
-            if n2 == 0:
-                print('Erro: Não é possível dividir por zero.')
-            else:
+            try:
                 resultado = n1 / n2
                 print(f'O resultado da sua divisão é: {resultado:g}')
+            except ZeroDivisionError:
+                print("Erro! Não é possível dividir por zero")
         case '*':
             resultado = n1 * n2
             print(f'O resultado da sua multiplicação é: {resultado:g}')
@@ -29,3 +29,5 @@ while op not in ['+', '-', '*', '/']:
     op = input("Digite o tipo de operação (+, -, /, *): ")
 else:
     calcular(n1, n2, op)
+
+
